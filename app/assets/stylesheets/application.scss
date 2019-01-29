@@ -14,3 +14,9 @@
 @import "navbar";
 @import "content";
 @import "noticia";
+
+
+.container-img{
+	background-image: url("https://www.fundacionedp.es/recursos/img/fundacionedp/20140204/areas-de-actuacion/educacion-e-investigacion.jpg");
+	background-size: contain;
+}
