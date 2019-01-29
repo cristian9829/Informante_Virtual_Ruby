@@ -4,8 +4,9 @@ class CreateNoticia < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :author
       t.text :description
-      t.date :publication_date
-
+      t.string :publication_date
+      t.string :image_url
+      t.boolean :first_notice
       t.timestamps
     end
   end

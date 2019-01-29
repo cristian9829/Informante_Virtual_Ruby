@@ -12,11 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2019_01_29_175505) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "noticia", force: :cascade do |t|
     t.string "title"
     t.string "author"
     t.text "description"
-    t.date "publication_date"
+    t.string "publication_date"
+    t.string "image_url"
+    t.boolean "first_notice"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

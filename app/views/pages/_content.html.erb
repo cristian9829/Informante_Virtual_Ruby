@@ -5,15 +5,14 @@
       <!-- Heading Row -->
       <div class="row my-4 container-hero">
         <div class="col-lg-8">
-          <img class="" src="" alt="">
-          <%=image_tag("hero.jpeg", class: "img-fluid rounded")%>
+          <%=image_tag(@noticia.image_url, class: "img-fluid rounded")%>
         </div>
         <!-- /.col-lg-8 -->
         <div class="col-lg-4">
-          <h3>Colombia pedirá en extradición a negociadores del Eln</h3>
+          <h3><%= @noticia.title %></h3>
           <hr>
-          <p>Tras un atentado terrorista con un carro bomba que se registró sobre las 9:32 de la mañana del jueves 17 de enero en la Escuela de Policía General Santander y que dejó un saldo de 21 fallecidos y 68 heridos, las autoridades señalaron a la guerrilla del Eln como autora del hecho.</p>
-          <a class="btn btn-primary btn-sm" href="#">Ver mas</a>
+          <p><%= truncate(@noticia.description, length:300) %></p>
+          <%= link_to 'ver mas', noticium_path(@noticia), class: "btn btn-primary" %>
         </div>
         <!-- /.col-md-4 -->
       </div>
@@ -28,45 +27,20 @@
 
       <!-- Content Row -->
       <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Melo sabía de pagos: exejecutivo de Odebrecht</h4>
-              <p class="card-text">En audiencia contra José Elías Melo empiezan a declarar desde Brasil tres exejecutivos de la firma</p>
+        <% @noticias.each do |i| %>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title"><%= i.title %></h4>
+                <p class="card-text"><%= truncate(i.description, length:100)  %></p>
+              </div>
+              <div class="card-footer">
+                <%= link_to 'ver mas', noticium_path(i), class: "btn btn-primary" %>
+              </div>
             </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Mas informacion</a>
-            </div>
-          </div>
         </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Vea si fue víctima de la mayor filtración de contraseñas de correo</h4>
-              <p class="card-text">Más de 21 millones de claves fueron publicadas en servicios de almacenamiento y foros de hacker</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Mas informacion</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Imputaran unos 40 homicidios a "Machete" jefe de bacrim en Medellin</h4>
-              <p class="card-text">Según la Fiscalía, el capturado era responsable de casi la mitad de los homicidios en la comuna 13.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Mas informacion</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-
+        <% end %>
       </div>
       <!-- /.row -->
-
     </div>
     <!-- /.container -->

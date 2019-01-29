@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
  def home
- end
-
- def show
+ 	@noticias = Noticia.where(first_notice: false)
+	@noticia = Noticia.find_by(first_notice: true)
  end
 end
