@@ -1,0 +1,47 @@
+<br>
+<br>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h1>Editar investigacion:</h1>
+			<h3><%= @noticia.title %></h3>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="col-md-8 jumbotron" style="margin: 0 auto;">
+        <%= form_for @noticia, url: admin_notice_path do |f| %>
+        <div class="card-body">
+          <div class="form-group">
+            <%= f.label :Titulo %>
+            <%= f.text_field :title, class: "form-control", autofocus: true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :Autor %>
+            <%= f.text_field :author, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :Descripcion %>
+            <%= f.text_area :description, rows: 4, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :url_imagen %>
+            <%= f.url_field :image_url, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :Primera_investigacion_del_index %>
+            <%= f.text_field :first_notice, class: "form-control" %>
+          </div>
+        </div>
+        <div class="card-footer text-right">
+          <%= f.submit :Listo, class: "btn btn-primary" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

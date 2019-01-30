@@ -1,0 +1,42 @@
+<div class="container">
+	<br>
+	<br>
+	<br>
+	<%= link_to 'Volver', admin_notice_index_path ,class: "btn btn-link" %>
+	<br>
+	<div class="row">
+		<div class="col">
+			<p> Fecha de publicacion: <%= @noticia.publication_date %></p>
+		</div>
+		<div class="col">
+			<p>Invesigacion Prioritaria: <%= @noticia.first_notice %></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<h2><%= @noticia.title %></h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<p> autor: <%= @noticia.author %></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col">
+			<p><%= @noticia.description %></p>
+			<hr>
+			<p>URL de la imagen: </p>
+			<a  target= "blanck"href= <%= @noticia.image_url %> ><%= @noticia.image_url %> </a>
+		</div>
+		<div class="col">
+			<%= image_tag(@noticia.image_url, class: "img-fluid") %>
+		</div>
+	</div>
+</div>
