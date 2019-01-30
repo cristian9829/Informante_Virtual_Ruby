@@ -26,33 +26,30 @@
           <div class="card my-4">
             <h5 class="card-header">Comentario:</h5>
             <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <textarea class="form-control" rows="3"></textarea>
+              <%= form_for @comment  do |f| %>
+                <div class="card-body">
+                  <div class="form-group">
+                    <%= f.hidden_field :noticia_id %>
+                    <%= f.text_area :description, rows: 4, class: "form-control" %>
+                  </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Publicar</button>
-              </form>
+                <div class="card-footer text-right">
+                  <%= f.submit :Listo, class: "btn btn-primary" %>
+                </div>
+              <% end %>
             </div>
           </div>
 
           <!-- Single Comment -->
-          <div class="media mb-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-            <div class="media-body">
-              <h5 class="mt-0">Usuario 1</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+          <% @noticia.comments.each do |i|%>
+            <div class="media mb-4">
+              <div class="media-body">
+                
+              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <%= i.description %>
+              </div>
             </div>
-          </div>
-
-          <!-- Comment with nested comments -->
-          <div class="media mb-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-            <div class="media-body">
-              <h5 class="mt-0">Usuario 2</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            </div>
-          </div>
-
+          <% end %>
         </div>
 
         <!-- Sidebar Widgets Column -->
